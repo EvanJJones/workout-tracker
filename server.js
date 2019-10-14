@@ -96,7 +96,7 @@ app.post('/api/bike', ({ body }, res) => {
 });
 
 app.post('/api/weight', ({ body }, res) => {
-  db.Run.create(body)
+  db.Weight.create(body)
     .then((dbWeight) => {
       res.json(dbWeight);
     })
