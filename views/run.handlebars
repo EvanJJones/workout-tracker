@@ -1,0 +1,43 @@
+<form>
+  <div class="row d-flex justify-content-center">
+    <h2 id="alert">Enter your run info</h2>
+  </div>
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-4">
+      <input type="text" class="form-control" placeholder="Distance (in miles)" id="distance">
+    </div>
+    <div class="col-md-2">
+      <input type="text" class="form-control" placeholder="minutes" id="minutes">
+    </div>
+    <div class="col-md-2">
+      <input type="text" class="form-control" placeholder="Seconds" id="seconds">
+    </div>
+    <div class="col-md-1">
+      <button type="button" class="btn btn-primary" id="submit-run">Submit</button>
+    </div>
+  </div>
+  
+</form>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Distance (miles)</th>
+      <th scope="col">Time</th>
+      <th scope="col">Date
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each runs}}
+    <tr>
+      <th scope="row">{{@index}}</th>
+      <td>{{this.distance}}</td>
+      <td>{{this.minutes}}:{{this.seconds}}</td>
+      <td>{{this.created}}</td>
+    </tr>
+    {{/each}}
+    
+  </tbody>
+</table>

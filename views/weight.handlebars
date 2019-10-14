@@ -1,0 +1,21 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Weight (lbs)</th>
+      <th scope="col">Reps</th>
+      <th scope="col">Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each weights}}
+    <tr>
+      <th scope="row">{{@index}}</th>
+      <td>{{this.weight}}</td>
+      <td>{{this.reps}}</td>
+      <td>{{this.created}}</td>
+    </tr>
+    {{/each}}
+    
+  </tbody>
+</table>
