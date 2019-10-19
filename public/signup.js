@@ -1,10 +1,11 @@
+// jquery asignments
 const $signupButton = $('#signup-button');
 const $username = $('#username-form');
 const $password = $('#password');
 const $password2 = $('#password2');
 
+// posts to signup
 function submitSignup() {
-  console.log('test');
   const signupObject = {
     username: $username.val().trim(),
     password: $password.val().trim(),
@@ -19,6 +20,7 @@ function submitSignup() {
     });
 }
 
+// logs in after signing up
 function submitLogin() {
   console.log('test');
   const loginObject = { username: $username.val().trim(), password: $password.val().trim() };
@@ -31,4 +33,5 @@ function submitLogin() {
     });
 }
 
+// listener
 $signupButton.on('click', submitSignup);

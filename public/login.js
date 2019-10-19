@@ -1,9 +1,10 @@
+// jquery assignments
 const $loginButton = $('#login-button');
 const $username = $('#username-form');
 const $password = $('#password');
 
+// post to login route
 function submitLogin() {
-  console.log('test');
   const loginObject = { username: $username.val().trim(), password: $password.val().trim() };
   $.post('/login', loginObject)
     .then((data) => {
@@ -14,4 +15,5 @@ function submitLogin() {
     });
 }
 
+// listener
 $loginButton.on('click', submitLogin);
