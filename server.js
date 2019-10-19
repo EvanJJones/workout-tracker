@@ -61,60 +61,73 @@ app.set('view engine', 'handlebars');
     HTML Routes
 
 */
+
+// home route, checks if you are logged in or not
 app.get('/', (req, res) => {
-  res.render('home');
+  if (!req.user) {
+    res.render('home');
+  } else {
+    res.render('loggedinHome');
+  }
 });
 
-// app.get('/run', (req, res) => {
-//   db.Run.find({})
-//     .then((dbRun) => {
-//       res.render('run', { runs: dbRun });
-//     })
-//     .catch((err) => {
-//       res.json(err);
-//     });
-// });
-
+// page for viewing and adding runs
 app.get('/run', (req, res) => {
-  const user = req.user.username;
-  db.User.find({ username: user })
-    .populate('runs')
-    .then((dbUser) => {
-      res.render('run', { runs: dbUser[0].runs });
-    })
-    .catch((err) => {
-      res.json(err);
-    });
+  if (!req.user) {
+    res.render('login');
+  } else {
+    const user = req.user.username;
+    db.User.find({ username: user })
+      .populate('runs')
+      .then((dbUser) => {
+        res.render('run', { runs: dbUser[0].runs });
+      })
+      .catch((err) => {
+        res.json(err);
+      });
+  }
 });
 
+// for viewing and adding bike stuff
 app.get('/bike', (req, res) => {
-  const user = req.user.username;
-  db.User.find({ username: user })
-    .populate('bikes')
-    .then((dbUser) => {
-      res.render('bike', { bikes: dbUser[0].bikes });
-    })
-    .catch((err) => {
-      res.json(err);
-    });
+  if (!req.user) {
+    res.render('login');
+  } else {
+    const user = req.user.username;
+    db.User.find({ username: user })
+      .populate('bikes')
+      .then((dbUser) => {
+        res.render('bike', { bikes: dbUser[0].bikes });
+      })
+      .catch((err) => {
+        res.json(err);
+      });
+  }
 });
 
+// for weight lifting
 app.get('/weight', (req, res) => {
-  const user = req.user.username;
-  db.User.find({ username: user })
-    .populate('weight')
-    .then((dbUser) => {
-      res.render('weight', { weights: dbUser[0].weight });
-    })
-    .catch((err) => {
-      res.json(err);
-    });
+  if (!req.user) {
+    res.render('login');
+  } else {
+    const user = req.user.username;
+    db.User.find({ username: user })
+      .populate('weight')
+      .then((dbUser) => {
+        res.render('weight', { weights: dbUser[0].weight });
+      })
+      .catch((err) => {
+        res.json(err);
+      });
+  }
 });
 
+// login page
 app.get('/login', (req, res) => {
   res.render('login');
 });
 
+// signup page
 app.get('/signup', (req, res) => {
   res.render('signup');
 });
@@ -140,6 +153,7 @@ app.post('/api/run', ({ body, user }, res) => {
     });
 });
 
+// post bike info
 app.post('/api/bike', ({ body, user }, res) => {
   db.Bike.create(body)
     .then(({ _id }) => db.User.findOneAndUpdate(
@@ -155,6 +169,7 @@ app.post('/api/bike', ({ body, user }, res) => {
     });
 });
 
+// post weight info
 app.post('/api/weight', ({ body, user }, res) => {
   db.Weight.create(body)
     .then(({ _id }) => db.User.findOneAndUpdate(
@@ -236,7 +251,7 @@ app.get('/user', (req, res) => {
 // Endpoint to logout
 app.get('/logout', (req, res) => {
   req.logout();
-  res.send(null);
+  res.render('home');
 });
 
 app.listen(PORT, () => {

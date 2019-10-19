@@ -13,6 +13,7 @@ const $submitRun = $('#submit-run');
 const $submitBike = $('#submit-bike');
 const $submitWeight = $('#submit-weight');
 
+// function that posts for every type
 function ajaxPost(route, object) {
   $.post(`/api/${route}`, object)
     .then((data) => {
@@ -23,8 +24,8 @@ function ajaxPost(route, object) {
     });
 }
 
+// function that creates run object and posts
 function postRun() {
-  console.log('test');
   const distance = $distance.val().trim();
   const minutes = $minutes.val().trim();
   const seconds = $seconds.val().trim();
@@ -46,6 +47,7 @@ function postRun() {
   }
 }
 
+// creates biuke object and posts
 function postBike() {
   const distance = $distance.val().trim();
   const minutes = $minutes.val().trim();
@@ -68,6 +70,7 @@ function postBike() {
   }
 }
 
+// create weight object and psot
 function postWeight() {
   const weight = $weight.val().trim();
   const reps = $reps.val().trim();
@@ -86,6 +89,7 @@ function postWeight() {
   }
 }
 
+// listeners
 $submitRun.on('click', postRun);
 $submitBike.on('click', postBike);
 $submitWeight.on('click', postWeight);
