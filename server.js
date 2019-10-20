@@ -122,6 +122,29 @@ app.get('/weight', (req, res) => {
   }
 });
 
+// all workouts
+app.get('/all', (req, res) => {
+  if (!req.user) {
+    res.render('login');
+  } else {
+    const user = req.user.username;
+    db.User.find({ username: user })
+      .populate('runs')
+      .populate('bikes')
+      .populate('weight')
+      .then((dbUser) => {
+        res.render('combined', {
+          runs: dbUser[0].runs,
+          bikes: dbUser[0].bikes,
+          weight: dbUser[0].weight,
+        });
+      })
+      .catch((err) => {
+        res.json(err);
+      });
+  }
+});
+
 // login page
 app.get('/login', (req, res) => {
   res.render('login');
