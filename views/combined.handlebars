@@ -1,0 +1,74 @@
+<div class="row">
+  <div class="col-md-4">
+    <h1>Runs</h1>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Distance</th>
+          <th scope="col">Time</th>
+          <th scope="col">Created</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each runs}}
+        <tr>
+          <th scope="row">{{@index}}</th>
+          <td>{{this.distance}}</td>
+          <td>{{this.minutes}}:{{this.seconds}}</td>
+          <td>{{this.created}}</td>
+        </tr>
+        {{/each}}
+
+        </tbody>
+      </table>
+    </div>
+  <div class="col-md-4">
+    <h1>Bicycling</h1>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Distance</th>
+          <th scope="col">Time</th>
+          <th scope="col">Created</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each bikes}}
+        <tr>
+          <th scope="row">{{@index}}</th>
+          <td>{{this.distance}}</td>
+          <td>{{this.minutes}}:{{this.seconds}}</td>
+          <td>{{this.created}}</td>
+        </tr>
+        {{/each}}
+
+        </tbody>
+      </table>
+    </div>
+  <div class="col-md-4">
+    <h1>Weight Lifting</h1>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Weigth</th>
+          <th scope="col">Reps</th>
+          <th scope="col">Created</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each weight}}
+        <tr>
+          <th scope="row">{{@index}}</th>
+          <td>{{this.weight}}</td>
+          <td>{{this.reps}}</td>
+          <td>{{this.created}}</td>
+        </tr>
+        {{/each}}
+
+        </tbody>
+      </table>
+  </div>
+</div>
