@@ -13,7 +13,7 @@ https://workout-tracker-evan.herokuapp.com/signup
 
 ## Images
 
-![Screenshot](./Screenshot1.png)
+![Screenshot](./workoutTracker.png)
 
 ## Author
 
