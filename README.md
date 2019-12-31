@@ -1,21 +1,28 @@
-# workout-tracker
+# Workout Tracker
 
-## goals
+## Purpose
 
-- main page, links to page for each workout
-- page for each workout where you can enter new info and see previous workouts of that type
-- page to see all your workout data in one place
+This is a simple site to keep track of runs, weightlifting and bicycling workouts.
 
-## workout types
+## Instructions
 
-- run
-- weights
-- biking
+You will need to make an account first. After that you can click to the different types of workouts, enter the information to have it recorded to your account.
 
-## pages
+## Link to Deployed Version
+https://workout-tracker-evan.herokuapp.com/signup
 
-- homepage
-- run
-- bike
-- weight
-- all
+## Images
+
+![Screenshot](./Screenshot1.png)
+
+## Author
+
+Evan Jones: https://github.com/EvanJJones
+
+## Technologies Used
+
+Node.js, Express, Bootstrap, MongoDB, HTML, CSS, Javascript
+
+## Contact
+
+evan@evanjjones.com
