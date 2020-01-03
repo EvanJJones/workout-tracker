@@ -285,6 +285,7 @@ app.get("/logout", (req, res) => {
   res.render("home");
 });
 
+// basic listener
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
 });
