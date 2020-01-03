@@ -1,14 +1,15 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 
+// schema for run information
 const RunSchema = new Schema({
   distance: Number,
   minutes: Number,
   seconds: Number,
-  created: { type: Date, default: Date.now },
+  created: { type: Date, default: Date.now }
 });
 
-const Run = mongoose.model('Run', RunSchema);
+const Run = mongoose.model("Run", RunSchema);
 
 module.exports = Run;
