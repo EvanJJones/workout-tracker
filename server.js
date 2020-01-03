@@ -256,6 +256,7 @@ app.post("/register", (req, res) => {
       password: req.body.password
     });
 
+    // cerates the user in the db
     User.createUser(newUser, (err, user) => {
       if (err) throw err;
       res.send(user).end();
